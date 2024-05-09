@@ -1,0 +1,233 @@
+{
+	"defaultData": {
+		"owner": "Spirent",
+		"language": "python",
+		"hidden": true,
+		"verdictMethod": "EXIT_CODE_VERDICT_PARSING",
+		"commandSequence": [
+			"%file% %parameterNameValuePairList%"
+		],
+		"executionMessages": {
+			"ok": "^.*(verified).*",
+			"info": "^.*(DEBUG|INFO).*",
+			"warning": "^.*(WARNING).*",
+			"error": "^.*(ERROR|CRITICAL).*"
+		},
+		"verdictParsing": {
+			"passTest": "Finished: PASSED",
+			"passTestIfNotAlreadyFailed": "SUCCESS",
+			"failTestIfPassing": "Failure number \\d+",
+			"failTest": "Finished: FAILED"
+		}
+	},
+	"fileSets": [
+		{
+			"fileNameMatch": ".*run_zephyr_automation_cycle\\.py",
+			"hidden": false,
+			"requirements": [
+				{
+					"name": "os.type",
+					"value": "linux"
+				}
+			],
+			"commandSequence": [
+				"%file% --jira_project_key %param_jira_project_key% --jira_project_release_name %param_jira_project_release_name% --zephyr_test_cycle_name %param_zephyr_test_cycle_name% --story_key_for_comment %param_story_key_for_comment% --zephyr_build %param_zephyr_build% --runlist_name %param_runlist_name% --topology_name %param_topology_name%"
+			],
+			"testCaseName": "Integration Zephyr Jira",
+			"description": "Script used to deploy runlist executions based on existing runlists or given Zephyr cycle names.",
+			"parameters": [
+				{
+					"name": "jira_project_key",
+					"type": "TEXT",
+					"description": "Main Jira project key.",
+					"value": "VELO"
+				},
+				{
+					"name": "jira_project_release_name",
+					"value": "unscheduled",
+					"type": "TEXT",
+					"description": "Jira project release name."
+				},
+				{
+					"name": "zephyr_test_cycle_name",
+					"type": "TEXT",
+					"value": "auto_cycle_3",
+					"description": "Name of the Zephyr test cycle used in the execution in case not runlist name is provided."
+				},
+				{
+					"name": "story_key_for_comment",
+					"type": "TEXT",
+					"description": "Story in which the results of the execution will be posted.",
+					"value": "VELO-1"
+				},
+				{
+					"name": "zephyr_build",
+					"type": "TEXT",
+					"value": "a.2"
+				},
+				{
+					"name": "runlist_name",
+					"type": "TEXT",
+					"value": "N/A",
+					"description": "Name of the runlist which will be executed in case no Zephyr test cycle name is provided. Set as 'N/A to ignore this argument.'"
+				},
+				{
+					"name": "topology_name",
+					"type": "TEXT",
+					"value": "N/A",
+					"description": "Name of the topology. Set as 'N/A' if no topology will be used."
+				}
+			]
+		},
+		{
+			"fileNameMatch": ".*run_zephyr_automation_single_agent\\.py",
+			"hidden": false,
+			"requirements": [
+				{
+					"name": "os.type",
+					"value": "linux"
+				}
+			],
+			"commandSequence": [
+				"%file% --jira_project_key %param_jira_project_key% --jira_project_release_name %param_jira_project_release_name% --zephyr_test_cycle_name %param_zephyr_test_cycle_name% --story_key_for_comment %param_story_key_for_comment% --zephyr_build %param_zephyr_build% --runlist_name %param_runlist_name% --topology_name %param_topology_name%"
+			],
+			"testCaseName": "Integration Zephyr Jira Single Agent",
+			"description": "Script used to deploy runlist executions based on existing runlists or given Zephyr cycle names using only one agent instance.",
+			"parameters": [
+				{
+					"name": "jira_project_key",
+					"type": "TEXT",
+					"description": "Main Jira project key.",
+					"value": "VELO"
+				},
+				{
+					"name": "jira_project_release_name",
+					"value": "unscheduled",
+					"type": "TEXT",
+					"description": "Jira project release name."
+				},
+				{
+					"name": "zephyr_test_cycle_name",
+					"type": "TEXT",
+					"value": "auto_cycle_3",
+					"description": "Name of the Zephyr test cycle used in the execution in case not runlist name is provided."
+				},
+				{
+					"name": "story_key_for_comment",
+					"type": "TEXT",
+					"description": "Story in which the results of the execution will be posted.",
+					"value": "VELO-1"
+				},
+				{
+					"name": "zephyr_build",
+					"type": "TEXT",
+					"value": "a.2"
+				},
+				{
+					"name": "runlist_name",
+					"type": "TEXT",
+					"value": "N/A",
+					"description": "Name of the runlist which will be executed in case no Zephyr test cycle name is provided. Set as 'N/A to ignore this argument.'"
+				},
+				{
+					"name": "topology_name",
+					"type": "TEXT",
+					"value": "N/A",
+					"description": "Name of the topology. Set as 'N/A' if no topology will be used."
+				}
+			]
+		},
+		{
+			"fileNameMatch": ".*run_phase_2_monitor\\.py",
+			"tags": [
+				"airtel_monitor"
+			],
+			"hidden": false,
+			"requirements": [
+				{
+					"name": "os.type",
+					"value": "linux"
+				}
+			],
+			"commandSequence": [
+				"%file% --jira_project_key %param_jira_project_key% --jira_project_release_name %param_jira_project_release_name% --zephyr_test_cycle_name %param_zephyr_test_cycle_name% --story_key_for_comment %param_story_key_for_comment% --zephyr_build %param_zephyr_build% --runlist_name %param_runlist_name% --topology_name %param_topology_name% --zephyr_test_cycle_id %param_zephyr_test_cycle_id%"
+			],
+			"testCaseName": "Integration Zephyr Jira - Monitor",
+			"description": "Script used to check runlist executions.",
+			"parameters": []
+		},
+		{
+			"fileNameMatch": ".*run_phase_3_reporter\\.py",
+			"tags": [
+				"airtel_reporter"
+			],
+			"hidden": false,
+			"requirements": [
+				{
+					"name": "os.type",
+					"value": "linux"
+				}
+			],
+			"commandSequence": [
+				"%file% --jira_project_key %param_jira_project_key% --jira_project_release_name %param_jira_project_release_name% --zephyr_test_cycle_name %param_zephyr_test_cycle_name% --story_key_for_comment %param_story_key_for_comment% --zephyr_build %param_zephyr_build% --runlist_name %param_runlist_name% --topology_name %param_topology_name% --zephyr_test_cycle_id %param_zephyr_test_cycle_id%"
+			],
+			"testCaseName": "Integration Zephyr Jira - Reporter",
+			"description": "Script used to create runlist execution report.",
+			"parameters": []
+		},
+		{
+			"fileNameMatch": ".*send_reservation_email\\.py",
+			"requirements": [
+				{
+					"name": "os.type",
+					"value": "linux"
+				}
+			],
+			"hidden": false
+		},
+		{
+			"fileNameMatch": ".*compute_rack_power\\.py",
+			"requirements": [
+				{
+					"name": "os.type",
+					"value": "linux"
+				}
+			],
+			"hidden": false
+		},
+		{
+			"fileNameMatch": ".*create_netbox_racks\\.py",
+			"requirements": [
+				{
+					"name": "os.type",
+					"value": "linux"
+				}
+			],
+			"hidden": false
+		},
+		{
+			"fileNameMatch": ".*create_rack_structures\\.py",
+			"requirements": [
+				{
+					"name": "os.type",
+					"value": "linux"
+				}
+			],
+			"hidden": false
+		},
+		{
+			"fileNameMatch": "(.*/){0,}.*\\.py",
+			"language": "python",
+			"commandSequence": [
+				"%file%"
+			]
+		},
+		{
+			"fileNameMatch": "(.*/){0,}.*\\.sh",
+			"language": "bash",
+			"commandSequence": [
+				"%file%"
+			]
+		}
+	]
+}
