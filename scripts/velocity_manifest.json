@@ -3,7 +3,7 @@
         "commandSequence": [
             "%file% %parameterNameValuePairList%"
         ],
-        "description": "%file% script to set device out of service state",
+        "description": "%file% script to set device out of service state new",
         "executionMessages": {
             "error": "^.*(ERROR|CRITICAL).*",
             "info": "^.*(DEBUG|INFO).*",
