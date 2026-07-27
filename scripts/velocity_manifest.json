@@ -3,7 +3,7 @@
         "commandSequence": [
             "%file% %parameterNameValuePairList%"
         ],
-        "description": "%file% script to set device out of service state new",
+        "description": "%file% script to set device out of service state",
         "executionMessages": {
             "error": "^.*(ERROR|CRITICAL).*",
             "info": "^.*(DEBUG|INFO).*",
@@ -32,8 +32,8 @@
             "fileNameMatch": "error_test\\.py",
             "parameters": [
                 {
-                    "description": "Resource id",
-                    "name": "resourcesIds",
+                    "description": "Device ID",
+                    "name": "deviceId",
                     "type": "TEXT",
                     "value": ""
                 }
